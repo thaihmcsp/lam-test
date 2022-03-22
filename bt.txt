@@ -1,0 +1,15 @@
+tạo bảng user, bảng cart, order, product
+
+cart lưu ref user
+cart ref product
+
+order lưu ref user
+order ref product
+
+thêm data vào các bảng
+
+1, tìm kiếm các order 1 user bất kỳ đã tạo
+
+2, cho biết trong giỏ hàng của 1 user bất kỳ đang chứa những sp gì
+
+3, tìm kiếm 1 order bất kỳ cho biết order này thuộc về ai, và có giá trị là bao nhiêu

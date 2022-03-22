@@ -1,0 +1,109 @@
+npm init                  khởi tạo dự án
+
+tải thư viện, frame work  express
+
+==========================================
+
+const express = require('express')          mang express vào để dùng
+
+const app = express()                       tạo ra ứng dụng và lưu vào app
+
+app.get('/link', function(req,res){         gửi text ra ngoài ở đường dẫn /link
+  res.send('text')
+})
+
+app.listen(port)                            tạo cổng để data ra vào
+
+====================================================
+
+express.static                              đẩy ra 1 thư mục tĩnh để sử ddung
+                                            yêu cầu link tuyệt đối
+
+app.use                                     setup chạy ngay khi start server
+
+====================================================
+
+res.send                response ra text
+                        có thẻ dùng cú pháp HTML
+
+res.sendFile            gửi file lên giao diện
+                        chú ý: dùng link tuyệt đối
+
+res.json()              response data json
+
+=====================================================
+
+req.query               data gửi trên đường dẫn
+                        ?key=value&key2=value2
+                        có thể dùng hay không thì tùy ý
+                        người dùng tùy ý sửa key, value
+
+req.param               data gửi trên đường dẫn
+server                  /:key
+                        đã set param là buộc phải dùng
+                        server quản lý key
+                        client quản lý value
+                    
+====================================================
+
+Trên url phải tường minh tên bảng data làm việc
+Nếu muốn tương tác với 1 data cụ thể thì tường minh ad trên url
+
+GET                   tìm kiếm data
+                      hiển thị giao diện
+/user                 xem toàn bộ user
+/user/:id             xem 1 user cụ thể
+
+POST                  Tạo mới data
+/user
+
+PUT                   Update data
+/user/:id             UPDATE 1 USER CỤ THỂ
+
+DELETE                Xóa data
+/user/:id             xóa 1 USER CỤ THỂ
+
+=====================================================
+
+$.ajax({                            // request gui ve server
+  type:'get/post/put/DELETE',
+  url: 'path',
+  data: {body}
+})
+.then(function(data){
+  .... 
+})
+.catch(function(err){
+  ....
+})
+
+luu y: Get khong co body
+
+POST, PUT, DELETE co gui body
+
+==================================================
+
+cookie-parser           xử lý string cookie và trả về object
+
+==================================================
+jwt
+
+mã hóa data 
+dịch ngược data theo mật khẩu
+
+sign(data, pass)        trả về token theo các tham số được truyền
+                        token tạo ra không lặp lại
+
+verify(token, pass)     dich ngược token ra data                        
+
+accesToken              token ngắn hạn 
+                        dùng để xác thực user, làm các chức năng
+
+refreshToken            chỉ dùng để cấp mới accesToken
+
+
+token                   chứa data bên trong
+                        hạn token để giới hạn thời gian sử dụng data
+
+cookie                  chứa token
+                        hạn cookie giới hạn thời gian lưu trữ

@@ -1,0 +1,88 @@
+npm           node_module package management
+
+npm install name        tải module cụ thể
+
+npm install             tự đọc file package.json tải các thư viện liệt kê
+
+.gitignore              bỏ qua file khi chạy git add .
+
+package.json  file quan ly du an
+
+======================================================
+
+const mongoose = require('mongoose')          // gọi thư viện mongoose
+
+mongoose.connect('mongodb://localhost/lam');  // liên kết vs dataBase mong muốn
+                                              lưu ý tên dataBase điền cho đúng
+
+const UserSchema = mongoose.Schema({          // tạo mẫu bảng
+  ....
+}, {collection:'name'})                       // đặt tên bảng
+
+const UserModel = mongoose.model('user', UserSchema)  // tạo công cụ để làm việc với bảng data
+
+model.create({                                // thêm mới data
+  data                                        // tạo dataBase, bảng nếu chưa có
+})                                            // trả về promise
+
+model.find({                                  // trả về array kết quả
+  đk tìm kiếm                                 // trả về promise
+})
+
+model.findOne({                               // trả về kết quả đầu tiên thỏa mãn
+    đk tìm kiếm                               // trả về promise
+})
+
+model.updateOne({                             // sửa data đầu tiên thỏa mãn  
+    đk tìm kiếm                               // trả về promise
+},{                                           // trả về báo cáo 
+    data mới
+})
+
+model.deleteOne({                             // xóa data đầu tiên thỏa mãn  
+    đk tìm kiếm                               // trả về promise
+})                                            // trả về báo cáo
+===========================================================
+
+$lt         <
+$lte        <=
+$gt         >
+$gte        >=
+
+$ne         !==
+
+$in         tìm kiếm những data thỏa mãn bất kỳ phần tử nào
+
+$nin        not in - ngược lại với in
+            tìm kiếm những data khác tất cả phần tử bên trong
+
+
+.limit(x)   giới hạn trả về tối đa x phần tử
+
+.skip(n)    bỏ qua n phần tử
+
+.sort()     xắp xếp data
+            1: chiều thuận
+            -1 chiều ngược
+            có thể sort theo nhiều đk
+
+=============================================================
+
+quan hệ dataBase
+
+B1: trong Schema phải định sẵn tham chiếu bảng data
+
+field: {
+  type: String,
+  ref: 'tên bảng data'
+}
+
+B2: dùng populate để kích hoạt tìm kiếm tham chiếu
+
+model.find(đk).populate( field ) 
+
+tìm kiếm tham chiếu theo field đã setup trong model
+
+populate(field)           populate array, string
+
+populate(field.key)       populate array chứa object, object

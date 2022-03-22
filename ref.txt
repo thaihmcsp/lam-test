@@ -1,0 +1,48 @@
+reference type          kiểu dũ liệu tham chiếu
+                        array, object, function
+                        lưu tham chiếu chứ không lưu trực tiếp giá trị vào biến
+
+JSON.stringify(array)   chuyển đổi array, object về dạng string JSON 
+                        khi chuyển về string thì mất tham chiếu ban đầu
+
+JSON.parse(string)      tạo ra array, object mới từ string Json đầu vào 
+                        array, object mới sẽ có tham chiếu mới hoàn toàn
+
+=============================================================================
+
+const                   khai báo hằng số
+                        không cho phép thay đổi giá trị
+                        lưu ý trường hợp array, object
+
+let                     khai báo biến
+                        chặt chẽ hơn so với var
+                        không được khai trùng tên biến
+
+var                     khai báo biến
+                        có thể khai trùng tên biến
+
+============================================================
+
+scope                   phạm vi truy đọc giá trị của biên
+
+block scope             biến chỉ có thể truy cập trong phạm vi {}
+                        let, const khai báo trong {}
+
+function scope          biến khai báo trong function sẽ chỉ có thể đọc giá trị trong function
+                        var, let, const khai báo bên trong function
+
+global scope            phạm vi đọc biến trên toàn bộ file
+                        var, let, const khai báo bên ngoài
+
+=============================================================
+
+hoisting                tự động mang khai báo lên đầu file
+                        => function có thể dùng trước, sau khi khai báo
+
+let và const không cho phép sử dụng biến trước khi gán giá trị (hoisting)
+
+=================================================================
+
+callback                là function được truyền vào tham số của function khác
+                        tăng khả năng tái sử dụng cho function cha
+                        
