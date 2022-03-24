@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/lam');
+require('dotenv').config()
+const link = process.env.mongodb
+mongoose.connect(link);
 
 module.exports = mongoose // export ra mongoose đã connect

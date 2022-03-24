@@ -1,0 +1,15 @@
+export default    = module.exports
+
+import            = require
+
+
+jsx               dùng chung HTML JS
+
+có thể dùng map để list data
+map thêm key vào để phân biệt
+
+==========================================
+
+state             là biến được sử dụng bởi 1 component
+                  khi state thay đổi thì component rerender
+                  state chỉ có thẻ chỉnh sửa bằng setState
